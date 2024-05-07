@@ -10,7 +10,6 @@ export const ProductCard = ({item}) => {
     const [showButton, setShowButton] = useState(false)
 
 const ItemsAdd =()=>{
-    console.log(id.item)
 }
     
 
