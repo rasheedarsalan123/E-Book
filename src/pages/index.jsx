@@ -1,4 +1,5 @@
-export { Home } from './Home/HomePage';
-export {Card} from'./Card/Cardpage';
-export { Product} from'./Product/ProductList';
+export { HomePage } from './Home/HomePage';
+export { Cardpage } from'./Card/Cardpage';
+export { ProductList} from'./Product/ProductList';
 export { ScrollToTop } from'../components/Other/ScrollToTop';
+export { ProductDetail} from'./ProductDetail';

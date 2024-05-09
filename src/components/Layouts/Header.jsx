@@ -3,20 +3,22 @@ import { FaShoppingCart } from "react-icons/fa";
 import { IoSettingsSharp } from "react-icons/io5";
 import { FaSearch } from "react-icons/fa";
 import { IoMdContact } from "react-icons/io";
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Search } from "../Sections/Search";
+import { DropDown } from "../../pages/Product/components/DropDown";
 
 export const Header = () => {
-  const [showInput,setShowInput]=useState(false);
-  const [DrakMode,setDarkMode]=useState(false)
-  useEffect(()=>{
-   if(DrakMode){
-    document.documentElement.classList.add('dark');
-   
-   } else{
-    document.documentElement.classList.remove('dark');
-   }
-  },[DrakMode]);
+  const [showInput, setShowInput] = useState(false);
+  const [DrakMode, setDarkMode] = useState(false)
+  const [showDropDown, setShowDropDown] = useState(false);
+  useEffect(() => {
+    if (DrakMode) {
+      document.documentElement.classList.add('dark');
+
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [DrakMode]);
   return (
     <header>
       <nav className="bg-white border-gray-200 dark:bg-gray-900">
@@ -29,16 +31,23 @@ export const Header = () => {
             <Link to='/Card'>
               <span style={{ cursor: 'pointer' }}><FaShoppingCart />
               </span> </Link>
-            <span style={{ cursor: 'pointer' }} onClick={()=>setDarkMode(!DrakMode)}>
+            <span style={{ cursor: 'pointer' }} onClick={() => setDarkMode(!DrakMode)}>
               <IoSettingsSharp />
             </span>
-            <span style={{ cursor: 'pointer' }}><IoMdContact /></span>
-            <span style={{ cursor: 'pointer' }}><FaSearch onClick={()=>setShowInput(!showInput)} /></span>
+            <div className="relative">
+              <IoMdContact onClick={() => setShowDropDown(!showDropDown)} className="cursor-pointer" /> 
+
+              </div>
+
+              
+            <span style={{ cursor: 'pointer' }}><FaSearch onClick={() => setShowInput(!showInput)} /></span>
           </div>
         </div>
       </nav>
 
-{showInput && <Search/> }
+      {showInput && <Search />}
+
+
     </header>
   )
 }

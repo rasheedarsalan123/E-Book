@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { VscKebabVertical } from "react-icons/vsc";
-import { ProductCard } from "../../components/Element/ProductCard";
+import { ProductCard } from "../../components";
 import { useEffect, useState } from "react";
 import { FilterBar } from "./components/FilterBar";
 
@@ -12,7 +12,7 @@ export const ProductList = () => {
         const response = await fetch('https://fakestoreapi.com/products');
         const data = await response.json();
         setItems(data);
-        console.log("response", data);
+        
     } catch (error) {
         console.log(error);
     }
